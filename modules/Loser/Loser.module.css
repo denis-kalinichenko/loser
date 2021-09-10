@@ -1,0 +1,136 @@
+.loser {
+    box-shadow: rgb(66 66 84 / 20%) 0 0 0 5px;
+    height: 300px;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.loser::before, .loser::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background: #19181e;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    box-shadow: inherit;
+    left: 50%;
+}
+
+.loser::before {
+    top: 0;
+    margin-top: -15px;
+}
+
+.loser::after {
+    bottom: 0;
+    margin-bottom: -15px;
+}
+
+.innerContainer {
+    height: inherit;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.innerContainer::after {
+    content: "";
+    background: linear-gradient(to right, rgba(17, 17, 20, 0.9), transparent 25%, transparent 75%, rgba(17, 17, 20, 0.9));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.wrapper {
+    height: inherit;
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 3265%;
+    transition: transform 8s cubic-bezier(.27,.01,0,.98);
+    transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        width: 1430%;
+    }
+}
+
+.wrapperOpened {
+    composes: wrapper;
+    transform: translate3d(-94.9%, 0, 0);
+}
+
+@media (min-width: 768px) {
+    .wrapperOpened {
+        transform: translate3d(-93%, 0, 0);
+    }
+}
+
+
+.item {
+    width: 33%;
+    box-sizing: border-box;
+    border-right: 1px dashed rgba(255,255,255, 0.1);
+    position: relative;
+    padding: 2rem;
+}
+
+@media (min-width: 768px) {
+    .item {
+        width: 14.28%;
+    }
+}
+
+.item span {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.controls {
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.controls > * {
+    margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .controls > * {
+        margin: 0 2rem;
+    }
+}
+
+.openButton {
+    appearance: none;
+    background: #19181f;
+    height: 60px;
+    border-radius: 0.8rem;
+    color: rgb(80,227,109);
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgb(80 227 109 / 40%), inset 0 0 6px rgb(80 227 109 / 40%);
+    border: 1px solid rgb(80,227,109);
+    max-width: 300px;
+    width: 100%;
+    transition: background .2s;
+}
+
+.openButton[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.openButton:hover {
+    background: transparent;
+}
