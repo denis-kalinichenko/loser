@@ -1,8 +1,14 @@
 .loser {
     box-shadow: rgb(66 66 84 / 20%) 0 0 0 5px;
-    height: 300px;
+    height: 150px;
     margin: 3rem 0;
     position: relative;
+}
+
+@media (min-width: 768px) {
+    .loser {
+        height: 300px;
+    }
 }
 
 .loser::before, .loser::after {
